@@ -1,74 +1,157 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title id="pageTitle">รายละเอียดพระ | บารมีศิริ</title>
+<meta name="description" id="pageDesc" content="รายละเอียดพระแท้จากร้านบารมีศิริ รับประกันแท้ตลอดชีพ">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+.product-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:start;
+}
+@media(max-width:768px){
+  .product-wrap{grid-template-columns:1fr;}
+}
+.gallery img{
+  width:100%;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+.thumbs{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+}
+.thumbs img{
+  width:70px;
+  cursor:pointer;
+  border-radius:8px;
+  border:2px solid transparent;
+}
+.thumbs img:hover{border-color:#c9a24d;}
+.badge{
+  display:inline-block;
+  margin-bottom:10px;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:13px;
+  color:#fff;
+}
+.available{background:#2ecc71;}
+.reserved{background:#e74c3c;}
+.guarantee{
+  margin-top:20px;
+  padding:15px;
+  border-left:4px solid #c9a24d;
+  background:#f8f6f1;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-wrap">
+    <a href="index.html" class="logo">บารมีศิริ</a>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav class="nav" id="mainNav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="shop.html">พระทั้งหมด</a>
+      <a href="howto.html">วิธีชำระเงิน</a>
+      <a href="about.html">เกี่ยวกับร้าน</a>
+      <a href="https://line.me/ti/p/@barameesiri" class="line-btn">LINE OA</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+function toggleMenu(){
+  document.getElementById("mainNav").classList.toggle("show");
+}
+</script>
+
+<!-- ===== CONTENT ===== -->
+<div class="container">
+  <div class="product-wrap">
+
+    <!-- GALLERY -->
+    <div class="gallery">
+      <img id="mainImg" src="" alt="">
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+
+    <!-- INFO -->
+    <div class="product-info">
+      <span id="statusBadge" class="badge"></span>
+
+      <h1 id="pName"></h1>
+      <div class="price" id="pPrice" style="font-size:30px;"></div>
+
+      <p id="pDesc"></p>
+
+      <a id="bookBtn" class="btn book" href="#">🕯️ จองพระ</a>
+      <a class="btn line" href="https://line.me/ti/p/@barameesiri">💬 สอบถามทาง LINE OA</a>
+
+      <div class="guarantee">
+        ✔ รับประกันพระแท้ตลอดชีพ<br>
+        ✔ ไม่แท้คืนเงินเต็มจำนวน<br>
+        ✔ ส่งพระตรงตามรูปทุกองค์
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div>
+      <div class="footer-title">บารมีศิริ</div>
+      <p>ร้านพระแท้ระดับพรีเมียม<br>รับประกันแท้ตลอดชีพ</p>
+    </div>
+    <div>
+      <div class="footer-title">เมนู</div>
+      <p><a href="index.html">หน้าแรก</a></p>
+      <p><a href="shop.html">พระทั้งหมด</a></p>
+      <p><a href="howto.html">วิธีชำระเงิน</a></p>
+      <p><a href="about.html">เกี่ยวกับร้าน</a></p>
+    </div>
+    <div>
+      <div class="footer-title">ติดต่อร้าน</div>
+      <p>LINE OA: @barameesiri</p>
+      <p>โทร: 098-071-6472</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © บารมีศิริ | ร้านพระแท้ระดับพรีเมียม
+  </div>
+</footer>
+
+<!-- ===== SCRIPT (สำคัญมาก) ===== -->
 <script>
 const products = {
   1:{
     name:"พระสมเด็จวัดระฆัง รุ่น 100 ปี",
     price:"59,000 บาท",
-    desc:"พระสมเด็จวัดระฆัง รุ่นอนุสรณ์ 100 ปี พระแท้ดูง่าย สภาพสวย เหมาะสำหรับบูชาและสะสม",
+    desc:"พระสมเด็จวัดระฆัง รุ่นอนุสรณ์ 100 ปี พระแท้ดูง่าย สภาพสวย",
     images:["amulet1.jpg","amulet1-2.jpg","amulet1-3.jpg"],
     status:"available"
   },
   2:{
     name:"หลวงปู่ทวด วัดช้างให้",
     price:"45,000 บาท",
-    desc:"หลวงปู่ทวด วัดช้างให้ องค์สวย พิธีดี น่าบูชา",
+    desc:"หลวงปู่ทวด วัดช้างให้ องค์สวย พิธีดี",
     images:["amulet2.jpg","amulet2-2.jpg"],
     status:"reserved"
-  },
-  3:{
-    name:"หลวงพ่อเงิน บางคลาน",
-    price:"68,000 บาท",
-    desc:"หลวงพ่อเงิน บางคลาน พระเกจิชื่อดัง สภาพสวย เหมาะบูชาและสะสม",
-    images:["amulet3.jpg"],
-    status:"available"
-  },
-  4:{
-    name:"พระนางพญา พิมพ์เข่าตรง",
-    price:"41,000 บาท",
-    desc:"พระนางพญา พิมพ์เข่าตรง พิมพ์นิยม กรุเก่า",
-    images:["amulet4.jpg"],
-    status:"available"
-  },
-  5:{
-    name:"หลวงปู่โต๊ะ วัดประดู่ฉิมพลี",
-    price:"36,000 บาท",
-    desc:"หลวงปู่โต๊ะ วัดประดู่ฉิมพลี พิธีดี น่าบูชา",
-    images:["amulet5.jpg"],
-    status:"available"
-  },
-  6:{
-    name:"พระผงสุพรรณ กรุเก่า",
-    price:"32,000 บาท",
-    desc:"พระผงสุพรรณ กรุเก่า สภาพสวย",
-    images:["amulet6.jpg"],
-    status:"available"
-  },
-  7:{
-    name:"พระขุนแผน กรุวัดบ้านกร่าง",
-    price:"29,000 บาท",
-    desc:"พระขุนแผน กรุวัดบ้านกร่าง พิมพ์นิยม",
-    images:["amulet7.jpg"],
-    status:"available"
-  },
-  8:{
-    name:"หลวงพ่อโสธร รุ่นเก่า",
-    price:"24,000 บาท",
-    desc:"หลวงพ่อโสธร รุ่นเก่า น่าบูชา",
-    images:["amulet8.jpg"],
-    status:"available"
-  },
-  9:{
-    name:"พระรอด กรุวัดมหาวัน",
-    price:"52,000 บาท",
-    desc:"พระรอด กรุวัดมหาวัน พิมพ์นิยม",
-    images:["amulet9.jpg"],
-    status:"reserved"
-  },
-  10:{
-    name:"หลวงปู่หมุน ฐิตสีโล",
-    price:"39,000 บาท",
-    desc:"หลวงปู่หมุน ฐิตสีโล รุ่นนิยม",
-    images:["amulet10.jpg"],
-    status:"available"
   }
 };
 
@@ -97,13 +180,14 @@ document.getElementById("pageDesc").content = p.desc;
 
 const badge = document.getElementById("statusBadge");
 badge.innerText = p.status === "available" ? "พร้อมเช่า" : "จองแล้ว";
-badge.classList.add(p.status);
+badge.className = "badge "+p.status;
 
 const mainImg = document.getElementById("mainImg");
 mainImg.src = "images/"+p.images[0];
 mainImg.alt = p.name;
 
 const thumbs = document.getElementById("thumbs");
+thumbs.innerHTML = "";
 p.images.forEach(img=>{
   const t = document.createElement("img");
   t.src = "images/"+img;
@@ -114,3 +198,6 @@ p.images.forEach(img=>{
 document.getElementById("bookBtn").href =
   "https://line.me/ti/p/@barameesiri?text=ขอจอง "+encodeURIComponent(p.name)+" ราคา "+encodeURIComponent(p.price);
 </script>
+
+</body>
+</html>
