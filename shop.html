@@ -5,29 +5,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>พระทั้งหมด | บารมีศิริ</title>
 <link rel="stylesheet" href="css/style.css">
+
 <style>
 .shop-hero{
-  background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9));
+  background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
+    url("images/amulet1.jpg") center/cover no-repeat;
   color:#fff;
-  padding:70px 20px;
+  padding:90px 20px;
   text-align:center;
 }
-.shop-hero h1{color:#c9a24d;font-size:36px;}
+.shop-hero h1{
+  color:#c9a24d;
+  font-size:38px;
+  margin-bottom:10px;
+}
+.shop-hero p{
+  max-width:600px;
+  margin:auto;
+  font-size:16px;
+  color:#eee;
+}
 </style>
 </head>
+
 <body>
 
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-wrap">
+    <a href="index.html" class="logo">บารมีศิริ</a>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav class="nav" id="mainNav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="shop.html">พระทั้งหมด</a>
+      <a href="howto.html">วิธีชำระเงิน</a>
+      <a href="about.html">เกี่ยวกับร้าน</a>
+      <a href="https://line.me/ti/p/@barameesiri" class="line-btn">LINE OA</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+function toggleMenu(){
+  document.getElementById("mainNav").classList.toggle("show");
+}
+</script>
+
+<!-- ===== HERO ===== -->
 <section class="shop-hero">
   <h1>พระเครื่องทั้งหมด</h1>
-  <p>คัดเฉพาะองค์สวย พร้อมรับประกันแท้ตลอดชีพ</p>
+  <p>คัดเฉพาะองค์สวย พร้อมรับประกันพระแท้ตลอดชีพ</p>
 </section>
 
+<!-- ===== CONTENT ===== -->
 <div class="container">
   <div class="grid">
 
-    <!-- ทำครบ 10 องค์ -->
+    <!-- องค์ที่ 1 -->
     <div class="card">
-      <img src="images/amulet1.jpg">
+      <img src="images/amulet1.jpg" alt="พระสมเด็จวัดระฆัง">
       <div class="info">
         <h3>พระสมเด็จวัดระฆัง</h3>
         <div class="price">59,000 บาท</div>
@@ -35,8 +74,9 @@
       </div>
     </div>
 
+    <!-- องค์ที่ 2 -->
     <div class="card">
-      <img src="images/amulet2.jpg">
+      <img src="images/amulet2.jpg" alt="หลวงปู่ทวด วัดช้างให้">
       <div class="info">
         <h3>หลวงปู่ทวด วัดช้างให้</h3>
         <div class="price">45,000 บาท</div>
@@ -44,9 +84,44 @@
       </div>
     </div>
 
+    <!-- เพิ่มองค์ที่ 3–10 ได้ตามโครงนี้ -->
+    
   </div>
 </div>
 
-<footer>© บารมีศิริ</footer>
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-wrap">
+
+    <div>
+      <div class="footer-title">บารมีศิริ</div>
+      <p>
+        ร้านพระแท้ระดับพรีเมียม<br>
+        คัดคุณภาพ เน้นความถูกต้อง<br>
+        รับประกันแท้ตลอดชีพ
+      </p>
+    </div>
+
+    <div>
+      <div class="footer-title">เมนู</div>
+      <p><a href="index.html">หน้าแรก</a></p>
+      <p><a href="shop.html">พระทั้งหมด</a></p>
+      <p><a href="howto.html">วิธีชำระเงิน</a></p>
+      <p><a href="about.html">เกี่ยวกับร้าน</a></p>
+    </div>
+
+    <div>
+      <div class="footer-title">ติดต่อร้าน</div>
+      <p>LINE OA: @barameesiri</p>
+      <p>โทร: 098-071-6472</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © บารมีศิริ | ร้านพระแท้ระดับพรีเมียม
+  </div>
+</footer>
+
 </body>
 </html>
