@@ -5,49 +5,130 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>รายละเอียดพระ | บารมีศิริ</title>
 <link rel="stylesheet" href="css/style.css">
+
 <style>
 .product-wrap{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:40px;
+  align-items:center;
 }
 @media(max-width:768px){
   .product-wrap{grid-template-columns:1fr;}
 }
+.product-img{
+  width:100%;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+.product-info h1{
+  margin-top:0;
+}
+.guarantee{
+  margin-top:20px;
+  padding:15px;
+  border-left:4px solid #c9a24d;
+  background:#f8f6f1;
+  font-size:14px;
+}
 </style>
 </head>
+
 <body>
 
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-wrap">
+    <a href="index.html" class="logo">บารมีศิริ</a>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav class="nav" id="mainNav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="shop.html">พระทั้งหมด</a>
+      <a href="howto.html">วิธีชำระเงิน</a>
+      <a href="about.html">เกี่ยวกับร้าน</a>
+      <a href="https://line.me/ti/p/@barameesiri" class="line-btn">LINE OA</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+function toggleMenu(){
+  document.getElementById("mainNav").classList.toggle("show");
+}
+</script>
+
+<!-- ===== CONTENT ===== -->
 <div class="container">
   <div class="product-wrap">
 
-    <img src="images/amulet1.jpg" style="width:100%;border-radius:18px">
+    <img src="images/amulet1.jpg" alt="พระสมเด็จวัดระฆัง" class="product-img">
 
-    <div>
+    <div class="product-info">
       <h1>พระสมเด็จวัดระฆัง รุ่น 100 ปี</h1>
-      <div class="price" style="font-size:28px;">59,000 บาท</div>
+
+      <div class="price" style="font-size:30px;">
+        59,000 บาท
+      </div>
 
       <p>
-        พระแท้ดูง่าย สภาพสวย  
-        คัดคุณภาพ เหมาะสำหรับบูชาและสะสม
+        พระสมเด็จวัดระฆัง รุ่นอนุสรณ์ 100 ปี<br>
+        พระแท้ดูง่าย สภาพสวย คัดคุณภาพ<br>
+        เหมาะสำหรับบูชาและสะสม
       </p>
 
-      <a class="btn book" href="https://line.me/ti/p/@barameesiri?text=ขอจองพระสมเด็จวัดระฆัง">
+      <a class="btn book" href="https://line.me/ti/p/@barameesiri?text=ขอจองพระสมเด็จวัดระฆัง%20100%20ปี">
         🕯️ จองพระ
       </a>
+
       <a class="btn line" href="https://line.me/ti/p/@barameesiri">
-        💬 LINE OA
+        💬 สอบถามทาง LINE OA
       </a>
 
       <div class="guarantee">
-        ✔ รับประกันแท้ตลอดชีพ<br>
-        ✔ ไม่แท้คืนเงินเต็มจำนวน
+        ✔ รับประกันพระแท้ตลอดชีพ<br>
+        ✔ ไม่แท้คืนเงินเต็มจำนวน<br>
+        ✔ ส่งพระตรงตามรูปทุกองค์
       </div>
     </div>
 
   </div>
 </div>
 
-<footer>© บารมีศิริ</footer>
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-wrap">
+
+    <div>
+      <div class="footer-title">บารมีศิริ</div>
+      <p>
+        ร้านพระแท้ระดับพรีเมียม<br>
+        คัดคุณภาพ เน้นความถูกต้อง<br>
+        รับประกันแท้ตลอดชีพ
+      </p>
+    </div>
+
+    <div>
+      <div class="footer-title">เมนู</div>
+      <p><a href="index.html">หน้าแรก</a></p>
+      <p><a href="shop.html">พระทั้งหมด</a></p>
+      <p><a href="howto.html">วิธีชำระเงิน</a></p>
+      <p><a href="about.html">เกี่ยวกับร้าน</a></p>
+    </div>
+
+    <div>
+      <div class="footer-title">ติดต่อร้าน</div>
+      <p>LINE OA: @barameesiri</p>
+      <p>โทร: 098-071-6472</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © บารมีศิริ | ร้านพระแท้ระดับพรีเมียม
+  </div>
+</footer>
+
 </body>
 </html>
