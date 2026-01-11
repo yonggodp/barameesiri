@@ -6,19 +6,49 @@
 <title>วิธีชำระเงิน | บารมีศิริ</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-wrap">
+    <a href="index.html" class="logo">บารมีศิริ</a>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav class="nav" id="mainNav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="shop.html">พระทั้งหมด</a>
+      <a href="howto.html">วิธีชำระเงิน</a>
+      <a href="about.html">เกี่ยวกับร้าน</a>
+      <a href="https://line.me/ti/p/@barameesiri" class="line-btn">LINE OA</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+function toggleMenu(){
+  document.getElementById("mainNav").classList.toggle("show");
+}
+</script>
+
+<!-- ===== CONTENT ===== -->
 <div class="container">
   <h1 style="color:#c9a24d;">วิธีชำระเงิน</h1>
 
-  <div class="card" style="padding:25px;">
-    <p><b>ชื่อผู้รับ:</b> เกรียงไกร สิทธิไกรพงษ์</p>
-    <p><b>เบอร์ Wallet:</b></p>
-    <div class="price" style="font-size:26px;">098-071-6472</div>
+  <div class="card" style="padding:30px; max-width:600px; margin:auto;">
+    <p><b>ชื่อผู้รับ</b></p>
+    <p>เกรียงไกร สิทธิไกรพงษ์</p>
 
-    <p style="margin-top:15px;">
-      ✔ โอนเงินแล้วส่งสลิปทาง LINE OA<br>
-      ✔ จัดส่งภายใน 1–2 วันทำการ
+    <p style="margin-top:15px;"><b>เบอร์ Wallet</b></p>
+    <div class="price" style="font-size:28px; letter-spacing:1px;">
+      098-071-6472
+    </div>
+
+    <p style="margin-top:20px; font-size:14px;">
+      ✔ โอนเงินแล้วกรุณาส่งสลิปทาง LINE OA<br>
+      ✔ ร้านจัดส่งพระภายใน 1–2 วันทำการ<br>
+      ✔ รับประกันพระแท้ตลอดชีพ
     </p>
 
     <a class="btn line" href="https://line.me/ti/p/@barameesiri">
@@ -27,6 +57,39 @@
   </div>
 </div>
 
-<footer>© บารมีศิริ</footer>
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-wrap">
+
+    <div>
+      <div class="footer-title">บารมีศิริ</div>
+      <p>
+        ร้านพระแท้ระดับพรีเมียม<br>
+        คัดคุณภาพ เน้นความถูกต้อง<br>
+        รับประกันแท้ตลอดชีพ
+      </p>
+    </div>
+
+    <div>
+      <div class="footer-title">เมนู</div>
+      <p><a href="index.html">หน้าแรก</a></p>
+      <p><a href="shop.html">พระทั้งหมด</a></p>
+      <p><a href="howto.html">วิธีชำระเงิน</a></p>
+      <p><a href="about.html">เกี่ยวกับร้าน</a></p>
+    </div>
+
+    <div>
+      <div class="footer-title">ติดต่อร้าน</div>
+      <p>LINE OA: @barameesiri</p>
+      <p>โทร: 098-071-6472</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © บารมีศิริ | ร้านพระแท้ระดับพรีเมียม
+  </div>
+</footer>
+
 </body>
 </html>
