@@ -222,6 +222,19 @@ const products = {
 
 const id = new URLSearchParams(window.location.search).get("id") || 1;
 const p = products[id];
+  if(!p){
+  document.querySelector(".container").innerHTML = `
+    <div style="text-align:center;padding:80px 20px;">
+      <h2 style="color:#c9a24d;">ไม่พบข้อมูลพระองค์นี้</h2>
+      <p>พระองค์นี้อาจถูกจองแล้ว หรือไม่มีอยู่ในระบบ</p>
+      <a href="shop.html" class="btn book" style="display:inline-block;margin-top:20px;">
+        ← กลับไปดูพระทั้งหมด
+      </a>
+    </div>
+  `;
+  throw new Error("Product not found");
+}
+
 
 document.getElementById("pName").innerText = p.name;
 document.getElementById("pPrice").innerText = p.price;
@@ -252,4 +265,5 @@ document.getElementById("bookBtn").href =
 
 </body>
 </html>
+
 
