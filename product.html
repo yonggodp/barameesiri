@@ -5,33 +5,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>รายละเอียดพระ | บารมีศิริ</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+.product-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+@media(max-width:768px){
+  .product-wrap{grid-template-columns:1fr;}
+}
+</style>
 </head>
 <body>
 
-<header><h1>รายละเอียดพระ</h1></header>
-
 <div class="container">
-  <img src="images/amulet1.jpg" style="width:100%;border-radius:12px">
+  <div class="product-wrap">
 
-  <h2>พระสมเด็จวัดระฆัง รุ่น 100 ปี</h2>
-  <div class="price">59,000 บาท</div>
+    <img src="images/amulet1.jpg" style="width:100%;border-radius:18px">
 
-  <p>
-    พระแท้ดูง่าย สภาพสวย  
-    เหมาะสำหรับบูชาและสะสม
-  </p>
+    <div>
+      <h1>พระสมเด็จวัดระฆัง รุ่น 100 ปี</h1>
+      <div class="price" style="font-size:28px;">59,000 บาท</div>
 
-  <a class="btn book" href="https://line.me/ti/p/@barameesiri?text=ขอจองพระสมเด็จวัดระฆัง">
-    🕯️ จองพระ
-  </a>
-  <a class="btn line" href="https://line.me/ti/p/@barameesiri">
-    💬 LINE OA
-  </a>
+      <p>
+        พระแท้ดูง่าย สภาพสวย  
+        คัดคุณภาพ เหมาะสำหรับบูชาและสะสม
+      </p>
 
-  <p>
-    ✔ รับประกันพระแท้ตลอดชีพ  
-    ✔ ไม่แท้คืนเงินเต็มจำนวน
-  </p>
+      <a class="btn book" href="https://line.me/ti/p/@barameesiri?text=ขอจองพระสมเด็จวัดระฆัง">
+        🕯️ จองพระ
+      </a>
+      <a class="btn line" href="https://line.me/ti/p/@barameesiri">
+        💬 LINE OA
+      </a>
+
+      <div class="guarantee">
+        ✔ รับประกันแท้ตลอดชีพ<br>
+        ✔ ไม่แท้คืนเงินเต็มจำนวน
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <footer>© บารมีศิริ</footer>
