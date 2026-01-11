@@ -58,7 +58,6 @@
 
 <body>
 
-<!-- ===== HEADER ===== -->
 <header class="site-header">
   <div class="header-wrap">
     <a href="index.html" class="logo">บารมีศิริ</a>
@@ -79,23 +78,18 @@ function toggleMenu(){
 }
 </script>
 
-<!-- ===== CONTENT ===== -->
 <div class="container">
   <div class="product-wrap">
 
-    <!-- GALLERY -->
     <div class="gallery">
       <img id="mainImg" src="" alt="">
       <div class="thumbs" id="thumbs"></div>
     </div>
 
-    <!-- INFO -->
     <div class="product-info">
       <span id="statusBadge" class="badge"></span>
-
       <h1 id="pName"></h1>
       <div class="price" id="pPrice" style="font-size:30px;"></div>
-
       <p id="pDesc"></p>
 
       <a id="bookBtn" class="btn book" href="#">🕯️ จองพระ</a>
@@ -111,7 +105,6 @@ function toggleMenu(){
   </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
 <footer class="site-footer">
   <div class="footer-wrap">
     <div>
@@ -136,23 +129,18 @@ function toggleMenu(){
   </div>
 </footer>
 
-<!-- ===== SCRIPT (สำคัญมาก) ===== -->
 <script>
 const products = {
-  1:{
-    name:"พระสมเด็จวัดระฆัง รุ่น 100 ปี",
-    price:"59,000 บาท",
-    desc:"พระสมเด็จวัดระฆัง รุ่นอนุสรณ์ 100 ปี พระแท้ดูง่าย สภาพสวย",
-    images:["amulet1.jpg","amulet1-2.jpg","amulet1-3.jpg"],
-    status:"available"
-  },
-  2:{
-    name:"หลวงปู่ทวด วัดช้างให้",
-    price:"45,000 บาท",
-    desc:"หลวงปู่ทวด วัดช้างให้ องค์สวย พิธีดี",
-    images:["amulet2.jpg","amulet2-2.jpg"],
-    status:"reserved"
-  }
+  1:{name:"พระสมเด็จวัดระฆัง รุ่น 100 ปี",price:"59,000 บาท",desc:"พระแท้ดูง่าย สภาพสวย",images:["amulet1.jpg","amulet1-2.jpg"],status:"available"},
+  2:{name:"หลวงปู่ทวด วัดช้างให้",price:"45,000 บาท",desc:"องค์สวย พิธีดี",images:["amulet2.jpg"],status:"reserved"},
+  3:{name:"หลวงพ่อเงิน บางคลาน",price:"68,000 บาท",desc:"เกจิชื่อดัง",images:["amulet3.jpg"],status:"available"},
+  4:{name:"พระนางพญา พิมพ์เข่าตรง",price:"41,000 บาท",desc:"กรุเก่า พิมพ์นิยม",images:["amulet4.jpg"],status:"available"},
+  5:{name:"หลวงปู่โต๊ะ วัดประดู่ฉิมพลี",price:"36,000 บาท",desc:"พิธีดี",images:["amulet5.jpg"],status:"available"},
+  6:{name:"พระผงสุพรรณ กรุเก่า",price:"32,000 บาท",desc:"กรุเก่า",images:["amulet6.jpg"],status:"available"},
+  7:{name:"พระขุนแผน กรุวัดบ้านกร่าง",price:"29,000 บาท",desc:"พิมพ์นิยม",images:["amulet7.jpg"],status:"available"},
+  8:{name:"หลวงพ่อโสธร รุ่นเก่า",price:"24,000 บาท",desc:"รุ่นเก่า",images:["amulet8.jpg"],status:"available"},
+  9:{name:"พระรอด กรุวัดมหาวัน",price:"52,000 บาท",desc:"พิมพ์นิยม",images:["amulet9.jpg"],status:"reserved"},
+  10:{name:"หลวงปู่หมุน ฐิตสีโล",price:"39,000 บาท",desc:"รุ่นนิยม",images:["amulet10.jpg"],status:"available"}
 };
 
 const id = new URLSearchParams(window.location.search).get("id") || 1;
@@ -160,43 +148,37 @@ const p = products[id];
 
 if(!p){
   document.querySelector(".container").innerHTML = `
-    <div style="text-align:center;padding:80px 20px;">
+    <div style="text-align:center;padding:80px">
       <h2 style="color:#c9a24d;">ไม่พบข้อมูลพระองค์นี้</h2>
-      <p>พระองค์นี้อาจถูกจองแล้ว หรือไม่มีอยู่ในระบบ</p>
-      <a href="shop.html" class="btn book" style="display:inline-block;margin-top:20px;">
-        ← กลับไปดูพระทั้งหมด
-      </a>
-    </div>
-  `;
+      <a href="shop.html" class="btn book">← กลับไปดูพระทั้งหมด</a>
+    </div>`;
   throw new Error("Product not found");
 }
 
 document.getElementById("pName").innerText = p.name;
 document.getElementById("pPrice").innerText = p.price;
 document.getElementById("pDesc").innerText = p.desc;
-
 document.getElementById("pageTitle").innerText = p.name+" | บารมีศิริ";
 document.getElementById("pageDesc").content = p.desc;
 
 const badge = document.getElementById("statusBadge");
-badge.innerText = p.status === "available" ? "พร้อมเช่า" : "จองแล้ว";
+badge.innerText = p.status==="available"?"พร้อมเช่า":"จองแล้ว";
 badge.className = "badge "+p.status;
 
 const mainImg = document.getElementById("mainImg");
 mainImg.src = "images/"+p.images[0];
-mainImg.alt = p.name;
 
 const thumbs = document.getElementById("thumbs");
-thumbs.innerHTML = "";
+thumbs.innerHTML="";
 p.images.forEach(img=>{
-  const t = document.createElement("img");
-  t.src = "images/"+img;
-  t.onclick = ()=> mainImg.src = t.src;
+  const t=document.createElement("img");
+  t.src="images/"+img;
+  t.onclick=()=>mainImg.src=t.src;
   thumbs.appendChild(t);
 });
 
 document.getElementById("bookBtn").href =
-  "https://line.me/ti/p/@barameesiri?text=ขอจอง "+encodeURIComponent(p.name)+" ราคา "+encodeURIComponent(p.price);
+  "https://line.me/ti/p/@barameesiri?text=ขอจอง "+encodeURIComponent(p.name)+" "+encodeURIComponent(p.price);
 </script>
 
 </body>
