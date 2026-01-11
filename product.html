@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>รายละเอียดพระ | บารมีศิริ</title>
+
+<title id="pageTitle">รายละเอียดพระ | บารมีศิริ</title>
+<meta name="description" id="pageDesc" content="รายละเอียดพระแท้จากร้านบารมีศิริ รับประกันแท้ตลอดชีพ">
+
 <link rel="stylesheet" href="css/style.css">
 
 <style>
@@ -11,19 +14,40 @@
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:40px;
-  align-items:center;
+  align-items:start;
 }
 @media(max-width:768px){
   .product-wrap{grid-template-columns:1fr;}
 }
-.product-img{
+.gallery img{
   width:100%;
   border-radius:18px;
   box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
-.product-info h1{
-  margin-top:0;
+.thumbs{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
 }
+.thumbs img{
+  width:70px;
+  cursor:pointer;
+  border-radius:8px;
+  border:2px solid transparent;
+}
+.thumbs img:hover{
+  border-color:#c9a24d;
+}
+.badge{
+  display:inline-block;
+  margin-bottom:10px;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:13px;
+  color:#fff;
+}
+.available{background:#2ecc71;}
+.reserved{background:#e74c3c;}
 .guarantee{
   margin-top:20px;
   padding:15px;
@@ -40,9 +64,7 @@
 <header class="site-header">
   <div class="header-wrap">
     <a href="index.html" class="logo">บารมีศิริ</a>
-
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
     <nav class="nav" id="mainNav">
       <a href="index.html">หน้าแรก</a>
       <a href="shop.html">พระทั้งหมด</a>
@@ -63,22 +85,22 @@ function toggleMenu(){
 <div class="container">
   <div class="product-wrap">
 
-    <img src="images/amulet1.jpg" alt="พระสมเด็จวัดระฆัง" class="product-img">
+    <!-- GALLERY -->
+    <div class="gallery">
+      <img id="mainImg" src="" alt="">
+      <div class="thumbs" id="thumbs"></div>
+    </div>
 
+    <!-- INFO -->
     <div class="product-info">
-      <h1>พระสมเด็จวัดระฆัง รุ่น 100 ปี</h1>
+      <span id="statusBadge" class="badge"></span>
 
-      <div class="price" style="font-size:30px;">
-        59,000 บาท
-      </div>
+      <h1 id="pName"></h1>
+      <div class="price" id="pPrice" style="font-size:30px;"></div>
 
-      <p>
-        พระสมเด็จวัดระฆัง รุ่นอนุสรณ์ 100 ปี<br>
-        พระแท้ดูง่าย สภาพสวย คัดคุณภาพ<br>
-        เหมาะสำหรับบูชาและสะสม
-      </p>
+      <p id="pDesc"></p>
 
-      <a class="btn book" href="https://line.me/ti/p/@barameesiri?text=ขอจองพระสมเด็จวัดระฆัง%20100%20ปี">
+      <a id="bookBtn" class="btn book" href="#">
         🕯️ จองพระ
       </a>
 
@@ -99,16 +121,10 @@ function toggleMenu(){
 <!-- ===== FOOTER ===== -->
 <footer class="site-footer">
   <div class="footer-wrap">
-
     <div>
       <div class="footer-title">บารมีศิริ</div>
-      <p>
-        ร้านพระแท้ระดับพรีเมียม<br>
-        คัดคุณภาพ เน้นความถูกต้อง<br>
-        รับประกันแท้ตลอดชีพ
-      </p>
+      <p>ร้านพระแท้ระดับพรีเมียม<br>รับประกันแท้ตลอดชีพ</p>
     </div>
-
     <div>
       <div class="footer-title">เมนู</div>
       <p><a href="index.html">หน้าแรก</a></p>
@@ -116,19 +132,64 @@ function toggleMenu(){
       <p><a href="howto.html">วิธีชำระเงิน</a></p>
       <p><a href="about.html">เกี่ยวกับร้าน</a></p>
     </div>
-
     <div>
       <div class="footer-title">ติดต่อร้าน</div>
       <p>LINE OA: @barameesiri</p>
       <p>โทร: 098-071-6472</p>
     </div>
-
   </div>
-
   <div class="footer-bottom">
     © บารมีศิริ | ร้านพระแท้ระดับพรีเมียม
   </div>
 </footer>
+
+<script>
+const products = {
+  1:{
+    name:"พระสมเด็จวัดระฆัง รุ่น 100 ปี",
+    price:"59,000 บาท",
+    desc:"พระสมเด็จวัดระฆัง รุ่นอนุสรณ์ 100 ปี พระแท้ดูง่าย สภาพสวย เหมาะสำหรับบูชาและสะสม",
+    images:["amulet1.jpg","amulet1-2.jpg","amulet1-3.jpg"],
+    status:"available"
+  },
+  2:{
+    name:"หลวงปู่ทวด วัดช้างให้",
+    price:"45,000 บาท",
+    desc:"หลวงปู่ทวด วัดช้างให้ องค์สวย พิธีดี น่าบูชา",
+    images:["amulet2.jpg","amulet2-2.jpg"],
+    status:"reserved"
+  }
+};
+
+const id = new URLSearchParams(window.location.search).get("id") || 1;
+const p = products[id];
+
+document.getElementById("pName").innerText = p.name;
+document.getElementById("pPrice").innerText = p.price;
+document.getElementById("pDesc").innerText = p.desc;
+
+document.getElementById("pageTitle").innerText = p.name+" | บารมีศิริ";
+document.getElementById("pageDesc").content = p.desc;
+
+const badge = document.getElementById("statusBadge");
+badge.innerText = p.status === "available" ? "พร้อมเช่า" : "จองแล้ว";
+badge.classList.add(p.status);
+
+const mainImg = document.getElementById("mainImg");
+mainImg.src = "images/"+p.images[0];
+mainImg.alt = p.name;
+
+const thumbs = document.getElementById("thumbs");
+p.images.forEach(img=>{
+  const t = document.createElement("img");
+  t.src = "images/"+img;
+  t.onclick = ()=> mainImg.src = t.src;
+  thumbs.appendChild(t);
+});
+
+document.getElementById("bookBtn").href =
+  "https://line.me/ti/p/@barameesiri?text=ขอจอง "+encodeURIComponent(p.name)+" ราคา "+encodeURIComponent(p.price);
+</script>
 
 </body>
 </html>
