@@ -144,6 +144,7 @@ function toggleMenu(){
 </footer>
 
 <script>
+<script>
 const products = {
   1:{
     name:"พระสมเด็จวัดระฆัง รุ่น 100 ปี",
@@ -158,8 +159,66 @@ const products = {
     desc:"หลวงปู่ทวด วัดช้างให้ องค์สวย พิธีดี น่าบูชา",
     images:["amulet2.jpg","amulet2-2.jpg"],
     status:"reserved"
+  },
+  3:{
+    name:"หลวงพ่อเงิน บางคลาน",
+    price:"68,000 บาท",
+    desc:"หลวงพ่อเงิน บางคลาน พระเกจิชื่อดัง สภาพสวย เหมาะบูชาและสะสม",
+    images:["amulet3.jpg"],
+    status:"available"
+  },
+  4:{
+    name:"พระนางพญา พิมพ์เข่าตรง",
+    price:"41,000 บาท",
+    desc:"พระนางพญา พิมพ์เข่าตรง พิมพ์นิยม กรุเก่า",
+    images:["amulet4.jpg"],
+    status:"available"
+  },
+  5:{
+    name:"หลวงปู่โต๊ะ วัดประดู่ฉิมพลี",
+    price:"36,000 บาท",
+    desc:"หลวงปู่โต๊ะ วัดประดู่ฉิมพลี พิธีดี น่าบูชา",
+    images:["amulet5.jpg"],
+    status:"available"
+  },
+  6:{
+    name:"พระผงสุพรรณ กรุเก่า",
+    price:"32,000 บาท",
+    desc:"พระผงสุพรรณ กรุเก่า สภาพสวย",
+    images:["amulet6.jpg"],
+    status:"available"
+  },
+  7:{
+    name:"พระขุนแผน กรุวัดบ้านกร่าง",
+    price:"29,000 บาท",
+    desc:"พระขุนแผน กรุวัดบ้านกร่าง พิมพ์นิยม",
+    images:["amulet7.jpg"],
+    status:"available"
+  },
+  8:{
+    name:"หลวงพ่อโสธร รุ่นเก่า",
+    price:"24,000 บาท",
+    desc:"หลวงพ่อโสธร รุ่นเก่า น่าบูชา",
+    images:["amulet8.jpg"],
+    status:"available"
+  },
+  9:{
+    name:"พระรอด กรุวัดมหาวัน",
+    price:"52,000 บาท",
+    desc:"พระรอด กรุวัดมหาวัน พิมพ์นิยม",
+    images:["amulet9.jpg"],
+    status:"reserved"
+  },
+  10:{
+    name:"หลวงปู่หมุน ฐิตสีโล",
+    price:"39,000 บาท",
+    desc:"หลวงปู่หมุน ฐิตสีโล รุ่นนิยม",
+    images:["amulet10.jpg"],
+    status:"available"
   }
 };
+</script>
+
 
 const id = new URLSearchParams(window.location.search).get("id") || 1;
 const p = products[id];
@@ -193,3 +252,4 @@ document.getElementById("bookBtn").href =
 
 </body>
 </html>
+
